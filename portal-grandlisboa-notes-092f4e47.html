@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>澳门新葡京 · 再次访问指南</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f2efe9;  /* 米白基调 */
+      font-family: system-ui, 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+      line-height: 1.7;
+      color: #3d3a34;
+      padding: 2rem 1.5rem;
+    }
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: rgba(255, 250, 240, 0.75);
+      backdrop-filter: blur(2px);
+      padding: 2.5rem 2.8rem;
+      border-radius: 24px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04), 0 2px 8px rgba(90,70,50,0.06);
+    }
+
+    /* 顶部导航——轻量、文字为主 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      padding-bottom: 1.4rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #d9d2c5;
+    }
+    .top-nav .nav-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #6b5f4e;
+    }
+    .top-nav .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.95rem;
+    }
+    .top-nav .nav-links a {
+      text-decoration: none;
+      color: #6b5f4e;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border 0.25s;
+    }
+    .top-nav .nav-links a:hover {
+      border-bottom-color: #b89a7a;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 450;
+      letter-spacing: 2px;
+      color: #2f2a24;
+      margin: 0.5rem 0 0.8rem;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #7a6f5e;
+      border-left: 4px solid #cbb29c;
+      padding-left: 1.2rem;
+      margin-bottom: 2.2rem;
+      font-style: italic;
+    }
+
+    /* 卡片/区块通用 */
+    .section-card {
+      background: #faf7f0;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #3f372d;
+      margin-bottom: 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px dashed #d2c9ba;
+      display: inline-block;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    .inset-quote {
+      background: #eae3d8;
+      padding: 1.2rem 1.8rem;
+      border-radius: 18px;
+      margin: 1.8rem 0;
+      font-size: 0.98rem;
+      color: #4e463c;
+      border-left: 6px solid #a48e77;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .feature-item {
+      flex: 1 1 180px;
+      background: #f4efe7;
+      border-radius: 20px;
+      padding: 1.2rem 1.4rem;
+      transition: background 0.2s;
+    }
+    .feature-item strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      color: #4a3f32;
+      letter-spacing: 0.3px;
+    }
+    .feature-item p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: #dcd4c5;
+      padding: 1rem 1.8rem;
+      border-radius: 40px 12px 12px 40px;
+      margin: 2.2rem 0;
+      font-size: 0.96rem;
+      border: 1px solid #cfc3b0;
+      color: #3b342b;
+    }
+
+    .faq-mini {
+      margin-top: 2.5rem;
+    }
+    .faq-mini details {
+      background: #f5f0e7;
+      border-radius: 16px;
+      padding: 0.6rem 1.5rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid #ddd4c6;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      color: #2f2a24;
+      cursor: pointer;
+      padding: 0.5rem 0;
+    }
+    .faq-mini details p {
+      margin: 0.8rem 0 0.4rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid #bba68b;
+      padding-left: 1rem;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #8b806b;
+      border-top: 1px solid #dad2c2;
+      padding-top: 2rem;
+      letter-spacing: 0.3px;
+    }
+    .footer-note a {
+      color: #5f5342;
+      text-decoration: underline wavy #cbb29c 1px;
+      text-underline-offset: 4px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body { padding: 1.2rem 0.8rem; }
+      .container { padding: 1.6rem 1.2rem; }
+      h1 { font-size: 1.8rem; }
+      .top-nav { flex-direction: column; align-items: flex-start; }
+      .top-nav .nav-links { gap: 1.2rem; }
+      .feature-grid { flex-direction: column; }
+      .inset-quote { padding: 0.8rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 轻量导航 -->
+  <nav class="top-nav">
+    <span class="nav-title">portal‑grandlisboa</span>
+    <div class="nav-links">
+      <a href="#intro">认识</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq-head">常见说明</a>
+    </div>
+  </nav>
+
+  <!-- 主标题 + 复访视角 -->
+  <h1>再次遇见 · 澳门新葡京</h1>
+  <div class="subhead">收藏一处坐标，持续关注城市脉络的演进</div>
+
+  <section id="intro">
+    <p>
+      一座建筑的魅力，往往不在初见时的闪耀，而在多年后仍能被你认出、想起、甚至想要再次打开它的页面。位于澳门核心区域的<strong>新葡京</strong>，早已超越单一地标的意义：它像一座微缩的岛屿，将设计、娱乐、文化与城市记忆叠合在一起。许多朋友习惯将它的官方网站存入书签，隔一段时间回访，看看又更新了哪些展览、演出或空间改造——这是一种安静的跟踪，也是数字时代的“城市散步”。
+    </p>
+    <div class="inset-quote">
+      <strong>收藏提示</strong> · 若你希望常回来看看，不妨将 <a href="https://portal-grandlisboa.com" style="text-decoration: underline dotted #a48e77; color:#3d342b;">澳门新葡京</a> 加入浏览器收藏夹。页面布局会随季节调换视觉主题，但始终保留清晰的信息入口。
+    </div>
+    <p>
+      每次访问都可能发现细微差别：一场限时艺术装置、一版更新的餐饮指南、或是建筑立面灯光秀的时刻表。这种“可回访”的特质，让一个网站不再只是公告板，而成为城市生活的一扇呼吸窗。
+    </p>
+  </section>
+
+  <!-- 三个场景模块，用卡片表达 -->
+  <section id="scenes">
+    <h2>三个熟悉的场景</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>文化 · 回廊</strong>
+        <p>不定期引入本地艺术家的联名展览与沙龙，空间动线兼顾私密与通透。适合提前浏览近期展讯，规划行程。</p>
+      </div>
+      <div class="feature-item">
+        <strong>风味 · 笔记</strong>
+        <p>多家餐厅与酒吧保持更新菜单与主厨介绍，从经典粤式茶楼到现代融合料理，收藏页面可以作为移动的美食笔记。</p>
+      </div>
+      <div class="feature-item">
+        <strong>景观 · 时刻</strong>
+        <p>建筑外廊与观景平台对公众开放时段常有细微调整，网站上会提前发布月度开放日历，方便摄影爱好者蹲点。</p>
+      </div>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.95rem; color: #5a4e3d;">
+      上述三个方向均可在 <a href="https://portal-grandlisboa.com" style="color:#5a4e3d; text-decoration: underline 1px #b89a7a;">澳门新葡京</a> 的导航内找到对应入口，信息层级逐年优化，更适合反复翻阅。
+    </p>
+  </section>
+
+  <!-- 提示框：持续关注的方法 -->
+  <div class="tip-box">
+    ⏳ 持续关注的小习惯：每隔一个月左右打开收藏夹里的站点，留意首页“最新动态”模块。很多临时活动只在页面置顶保留两周，错过便难以回查。
+  </div>
+
+  <!-- 常见说明（FAQ 摘要） -->
+  <section id="faq-head" class="faq-mini">
+    <h2>常见说明 · 摘要</h2>
+    <details>
+      <summary>网站内容多久更新一次？</summary>
+      <p>主要板块（活动、餐饮、公告）通常每半个月刷新，大型节庆前会提前发布专题页面。没有固定“更新日”，但首页时间戳会标明最近一次修订日期。</p>
+    </details>
+    <details>
+      <summary>移动端浏览体验如何？</summary>
+      <p>页面采用自适应布局，在手机和平板上会自动调整卡片宽度与字体大小。部分交互菜单需要轻触展开，建议保持浏览器版本更新。</p>
+    </details>
+    <details>
+      <summary>是否有邮件通知或 RSS？</summary>
+      <p>目前未开放主动推送。站内设有一个“订阅提醒”页面，填写邮箱后可收到重大活动通知。更推荐的方法是定期手动回访，避免信息过载。</p>
+    </details>
+    <p style="margin-top: 1rem; font-size: 0.9rem; color: #6d624f;">
+      更详细的说明可在网站底部的「帮助与指南」中找到。<br>
+      如果你已经有一段时间没回来，不妨重新打开 <a href="https://portal-grandlisboa.com" style="color:#4f4435;">澳门新葡京</a>，看看多了哪些安静的角落。
+    </p>
+  </section>
+
+  <!-- 底部，自然嵌回关键词 -->
+  <div class="footer-note">
+    <span>每一次回访都是一次城市的深呼吸 · </span>
+    <a href="https://portal-grandlisboa.com">澳门新葡京</a>
+    <span> · 持续关注 2025</span>
+  </div>
+
+</div>
+</body>
+</html>
