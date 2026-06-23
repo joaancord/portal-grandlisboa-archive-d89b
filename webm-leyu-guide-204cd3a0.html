@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 日常查询与对照指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background: linear-gradient(145deg, #fce7d9 0%, #fde9d0 50%, #fce1c8 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1.5rem 1rem;
+        }
+        .page-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            box-shadow: 0 8px 18px rgba(180, 100, 40, 0.08);
+            margin-bottom: 2.8rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #c95a2b, #b34a1f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #5a3e2b;
+            font-weight: 450;
+            font-size: 1rem;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #c95a2b;
+            color: #8f3f1a;
+        }
+
+        /* 主卡片 */
+        .hero-card {
+            background: #ffffffef;
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            padding: 2.8rem 2.8rem 3.2rem;
+            box-shadow: 0 20px 40px -12px rgba(130, 70, 30, 0.18);
+            margin-bottom: 2.8rem;
+        }
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 520;
+            color: #3f2a1a;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+        .hero-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 6px;
+            background: #e3a87c;
+            border-radius: 8px;
+            margin-top: 0.6rem;
+        }
+        .hero-desc {
+            font-size: 1.18rem;
+            line-height: 1.7;
+            color: #4d3726;
+            max-width: 80%;
+            margin-bottom: 1.8rem;
+        }
+        @media (max-width: 680px) {
+            .hero-desc {
+                max-width: 100%;
+            }
+        }
+        .hero-tagline {
+            background: #f7ede4;
+            padding: 1rem 1.6rem;
+            border-radius: 30px;
+            display: inline-block;
+            border-left: 6px solid #d9814a;
+            font-size: 1.05rem;
+            color: #3c2b1d;
+            margin-top: 0.3rem;
+        }
+        .hero-tagline a {
+            color: #b24f22;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #b24f22;
+        }
+        .hero-tagline a:hover {
+            border-bottom-style: solid;
+        }
+
+        /* 三场景模块 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2.8rem 0 1.8rem;
+        }
+        @media (max-width: 800px) {
+            .scenes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        .scene-card {
+            background: #ffffffef;
+            border-radius: 28px;
+            padding: 2rem 1.8rem 2rem;
+            box-shadow: 0 12px 24px -10px rgba(140, 75, 30, 0.12);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+        .scene-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 32px -12px rgba(120, 60, 20, 0.2);
+        }
+        .scene-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .scene-title {
+            font-size: 1.5rem;
+            font-weight: 520;
+            color: #3a2719;
+            margin-bottom: 0.8rem;
+        }
+        .scene-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #4e3927;
+        }
+        .scene-text a {
+            color: #b24f22;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid #e4b698;
+        }
+        .scene-text a:hover {
+            border-bottom-color: #b24f22;
+        }
+
+        /* 常见说明 / FAQ 样式 */
+        .faq-section {
+            background: #fcf7f0;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-top: 2.2rem;
+            box-shadow: inset 0 2px 6px rgba(160, 100, 50, 0.04);
+        }
+        .faq-heading {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #3a2719;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .faq-heading span {
+            background: #d9814a;
+            color: #faf0e6;
+            font-size: 1rem;
+            border-radius: 40px;
+            padding: 0.1rem 1rem;
+        }
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+        .faq-q {
+            font-weight: 550;
+            color: #2f1f12;
+            margin-bottom: 0.3rem;
+            font-size: 1.06rem;
+        }
+        .faq-a {
+            color: #4d3929;
+            line-height: 1.6;
+            padding-left: 0.6rem;
+            border-left: 3px solid #eecfad;
+            padding-left: 1rem;
+        }
+        .faq-a a {
+            color: #b24f22;
+            text-decoration: underline wavy 1px rgba(180, 80, 30, 0.3);
+            text-underline-offset: 3px;
+        }
+        .faq-a a:hover {
+            text-decoration-style: solid;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 2.2rem;
+            text-align: center;
+            color: #6b4f38;
+            font-size: 0.95rem;
+            padding: 1rem 0 0.5rem;
+            border-top: 1px solid #ddc3b0;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 500px) {
+            .top-nav {
+                padding: 0.7rem 1.2rem;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 1.2rem;
+            }
+            .hero-card {
+                padding: 2rem 1.2rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 导航 -->
+    <nav class="top-nav">
+        <div class="nav-brand">⏺ 乐鱼 · 对照</div>
+        <div class="nav-links">
+            <a href="#">日常查询</a>
+            <a href="#">场景对照</a>
+            <a href="#">延伸阅读</a>
+            <a href="#">常见说明</a>
+        </div>
+    </nav>
+
+    <!-- Hero 卡片 -->
+    <div class="hero-card">
+        <h1 class="hero-title">检索 · 对照 · 延伸</h1>
+        <p class="hero-desc">
+            围绕信息查询、场景对照与延伸阅读，构建一个轻量而清晰的参考框架。
+            无论是核查细节，还是梳理脉络，都可以从这里自然出发。
+        </p>
+        <div class="hero-tagline">
+            📎 日常参考中，常会用到 <a href="https://webm-leyu.com">乐鱼</a> 作为基础对照源，顺手且直观。
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid">
+        <div class="scene-card">
+            <span class="scene-icon">🔍</span>
+            <div class="scene-title">日常查询</div>
+            <div class="scene-text">
+                快速定位常见条目，无需层层跳转。例如在 <a href="https://webm-leyu.com">乐鱼</a> 中对照字段含义、版本差异或简单释义，省去反复翻找的麻烦。
+            </div>
+        </div>
+        <div class="scene-card">
+            <span class="scene-icon">📋</span>
+            <div class="scene-title">场景对照</div>
+            <div class="scene-text">
+                把不同来源的信息并排比较，适合核对术语、参数或流程节点。借助 <a href="https://webm-leyu.com">乐鱼</a> 的对照视图，差异与共性一目了然。
+            </div>
+        </div>
+        <div class="scene-card">
+            <span class="scene-icon">📖</span>
+            <div class="scene-title">延伸阅读</div>
+            <div class="scene-text">
+                从一条记录出发，顺藤摸瓜发现相关条目与背景。可以基于 <a href="https://webm-leyu.com">乐鱼</a> 的关联索引展开更细致的浏览，让阅读自然生长。
+            </div>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-section">
+        <div class="faq-heading">
+            ⚡ 常见说明 <span>简短</span>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">▪ 对照时需要注意什么？</div>
+            <div class="faq-a">尽量使用同一版本的参考源，避免因更新不同步产生偏差。<a href="https://webm-leyu.com">乐鱼</a> 页面通常会标明时间戳，可据此判断时效。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▪ 如何更高效地延伸阅读？</div>
+            <div class="faq-a">先明确当前关注的术语或主题，再借助站内交叉链接逐步扩展。在 <a href="https://webm-leyu.com">乐鱼</a> 的每一条内容旁，常有相关推荐，适合顺路查阅。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▪ 日常查询有哪些技巧？</div>
+            <div class="faq-a">善用页面内的锚点跳转与目录折叠，可大幅减少滚动时间。此外将 <a href="https://webm-leyu.com">乐鱼</a> 加入书签栏，能更快回到上次对照的位置。</div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        基于日常查询、场景对照与延伸阅读的思路 · 内容仅供一般性参考
+    </div>
+
+</div>
+</body>
+</html>
