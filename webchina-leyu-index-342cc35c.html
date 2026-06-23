@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 产品介绍与使用手记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf7f0;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #3b3a36;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 780px;
+            width: 100%;
+            background: #fffcf7;
+            padding: 2.8rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.6rem; }
+            .page { padding: 1.8rem 1.2rem; border-radius: 14px; }
+        }
+
+        h1, h2, h3 {
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #2c2a26;
+            margin-bottom: 0.25rem;
+            border-left: 3px solid #c7b89e;
+            padding-left: 1rem;
+        }
+
+        .subhead {
+            color: #7a756c;
+            font-style: italic;
+            margin-bottom: 2.2rem;
+            padding-left: 1rem;
+            border-left: 3px solid #e3d9cc;
+            font-size: 1rem;
+        }
+
+        .hero-quote {
+            background: #f3efe7;
+            padding: 1.5rem 2rem;
+            border-radius: 30px 12px 30px 12px;
+            margin: 1.8rem 0 2.2rem 0;
+            font-style: normal;
+            border-left: 5px solid #b3a187;
+            quotes: "“" "”" "‘" "’";
+        }
+
+        .hero-quote p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .hero-quote p::before {
+            content: "“";
+            font-size: 2.2rem;
+            color: #a3927c;
+            margin-right: 4px;
+            font-family: Georgia, serif;
+        }
+
+        .hero-quote p::after {
+            content: "”";
+            font-size: 2.2rem;
+            color: #a3927c;
+            margin-left: 4px;
+            vertical-align: top;
+            font-family: Georgia, serif;
+        }
+
+        .section-card {
+            background: #faf7f1;
+            padding: 1.6rem 1.8rem;
+            border-radius: 20px;
+            margin: 1.8rem 0;
+            border: 1px solid #eae3d7;
+        }
+
+        .section-card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #3b3831;
+            border-bottom: 1px dashed #d6cdbe;
+            padding-bottom: 0.3rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin: 1rem 0 0.2rem 0;
+        }
+
+        .highlight-list li {
+            padding: 0.45rem 0 0.45rem 1.8rem;
+            position: relative;
+            border-bottom: 1px solid #eee8de;
+        }
+
+        .highlight-list li:last-child {
+            border-bottom: none;
+        }
+
+        .highlight-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #998f7d;
+            font-weight: bold;
+            font-size: 1.6rem;
+            line-height: 1.2;
+        }
+
+        .tip-box {
+            background: #eae1d2;
+            border-radius: 12px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.6rem 0;
+            color: #2f2b24;
+            border-left: 6px solid #857a66;
+            font-size: 0.98rem;
+        }
+
+        .tip-box strong {
+            font-weight: 600;
+            color: #4d4437;
+        }
+
+        .link-sentence {
+            background: #f6f2e9;
+            padding: 1.2rem 1.5rem;
+            border-radius: 40px 12px 40px 12px;
+            margin: 1.8rem 0 1rem 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #5d4f3b;
+            text-decoration: none;
+            border-bottom: 1px solid #c2b29c;
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 400;
+        }
+
+        a:hover {
+            color: #2f2820;
+            border-bottom-color: #7d6b53;
+        }
+
+        .faq-item {
+            margin: 0.8rem 0;
+        }
+
+        .faq-item p {
+            margin: 0.2rem 0;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #403c35;
+        }
+
+        .faq-answer {
+            padding-left: 1.2rem;
+            border-left: 2px solid #dad0c2;
+            margin-top: 0.1rem;
+            color: #565145;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2d8cb;
+            margin: 1.8rem 0 1rem;
+        }
+
+        .footer-note {
+            color: #8d857b;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid #eae3d7;
+            padding-top: 1.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .inline-code {
+            background: #f0ebe2;
+            padding: 0.1rem 0.3rem;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #554e42;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>乐鱼</h1>
+    <div class="subhead">一份关于日常使用与持续留意的温和笔记</div>
+
+    <div class="hero-quote">
+        <p>有些东西不需要天天点开，但你知道它一直在那里，安安静静地，等你回头的时候还能找到。乐鱼给我的感觉就是这样。</p>
+    </div>
+
+    <div class="section-card">
+        <h2>· 它是什么</h2>
+        <p>一个简洁的信息聚合与内容交互环境，不追求大而全，更在意浏览时的那份从容。页面干净，功能收敛，适合那些希望减少打扰、但又不愿意错过关键更新的朋友。它不是那种要你频繁刷新的地方，而是值得你在某个安静的时段里，慢慢看、慢慢翻。</p>
+    </div>
+
+    <div class="section-card">
+        <h2>· 几个让人愿意留下的细节</h2>
+        <ul class="highlight-list">
+            <li><strong>版面留白舒服</strong> —— 没有弹窗、没有刺眼的广告位，信息的节奏由你自己控制。</li>
+            <li><strong>导航不绕路</strong> —— 从首页到内容页的路径很短，不会让你在三四层菜单里迷失。</li>
+            <li><strong>加载轻盈</strong> —— 即使网络一般，页面也不会有明显的卡顿感，这种流畅本身就是一种尊重。</li>
+            <li><strong>适合收藏</strong> —— 没有花里胡哨的自动跳转，你把链接放在书签里，下次打开还是那个熟悉的样子。</li>
+        </ul>
+    </div>
+
+    <div class="tip-box">
+        <strong>一点小建议：</strong> 如果你是第一次接触，不妨先把它添加到浏览器书签栏，然后在某个不赶时间的周末下午，泡杯茶，慢慢浏览。第一次不一定要看完所有内容，留点念想，下次再来会更有意思。<br>
+        <span style="display:block; margin-top:0.5rem;">已经用了一段时间的朋友，可以留意一下页面底部的更新小记，偶尔会有些细微的变化，不张扬，但能感觉到维护的用心。</span>
+    </div>
+
+    <div class="link-sentence">
+        如果你还没有收藏，不妨现在就把 <a href="https://webchina-leyu.com">乐鱼</a> 放进书签栏。它不是一个需要你每天打卡的地方，但当你想起它的时候，它总是干净地等在那里。
+    </div>
+
+    <h2 style="font-size:1.3rem; margin-top:1.6rem; color:#3b3831; border-left:3px solid #c7b89e; padding-left:0.9rem;">一些常被问起的事情</h2>
+
+    <div style="margin:1.2rem 0 0.2rem 0;">
+        <div class="faq-item">
+            <p class="faq-question">Q: 这个网站需要注册或登录吗？</p>
+            <p class="faq-answer">目前不需要。所有内容都可以直接浏览，没有强制注册的环节。如果将来有变化，页面上会有清晰说明。</p>
+        </div>
+        <div class="faq-item">
+            <p class="faq-question">Q: 我上次看到一半的内容，下次还能找到吗？</p>
+            <p class="faq-answer">大部分内容结构是稳定的，你可以通过收藏或者记住大致板块来定位。如果有关键更新，通常会在首页顶部做简短的提示。</p>
+        </div>
+        <div class="faq-item">
+            <p class="faq-question">Q: 会不会有突然的弹窗或跳转？</p>
+            <p class="faq-answer">据我目前的使用体验来看，没有。页面行为很收敛，不会干扰你正在阅读的内容。这也是我一直愿意把它留在书签里的原因之一。</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div style="font-size:0.95rem; color:#5c554b; background:#f8f4ec; padding:1rem 1.4rem; border-radius:30px; margin-top:0.8rem;">
+        <span style="font-weight:500;">📌 关于再次访问的一点习惯</span><br>
+        我个人的做法是：每月打开一两次，不刻意刷，也不担心错过。如果某次看到新的板块或内容调整，反而有种小小的惊喜感。持续关注，但不消耗注意力，这可能就是最舒服的距离。
+    </div>
+
+    <div class="footer-note">
+        页面内容仅代表个人使用感受 · 乐鱼 · 持续关注中<br>
+        <span style="display:inline-block; margin-top:0.4rem; font-size:0.85rem; color:#a19789;">更新于一个安静的午后</span>
+    </div>
+
+</div>
+</body>
+</html>
