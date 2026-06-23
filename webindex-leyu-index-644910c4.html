@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.6">
+  <title>日常查询与延伸阅读 · 乐鱼</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #faf8f5;
+      color: #1e1e1e;
+      font-family: 'Georgia', 'Times New Roman', '宋体', 'Songti SC', serif;
+      line-height: 1.65;
+      padding: 1.8rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* hero 区 — 落地页风格，文章标题式 */
+    .hero {
+      margin: 2rem 0 3rem;
+      border-left: 5px solid #8b7e6a;
+      padding-left: 1.8rem;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #2b2b2b;
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+    }
+    .hero .subhead {
+      font-size: 1.1rem;
+      color: #5a5a5a;
+      border-bottom: 1px dashed #d6cdbc;
+      padding-bottom: 0.6rem;
+      display: inline-block;
+    }
+    .hero p {
+      margin-top: 0.9rem;
+      font-size: 1rem;
+      color: #3f3f3f;
+      max-width: 600px;
+    }
+
+    /* 卡片式优势区，但保持文章排版气质 */
+    .advantage-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2.8rem 0 2.4rem;
+    }
+    .advantage-item {
+      flex: 1 1 200px;
+      background: #ffffffec;
+      padding: 1.4rem 1.2rem 1.6rem;
+      border-radius: 0px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      border-top: 2px solid #dbd0be;
+    }
+    .advantage-item h3 {
+      font-weight: 500;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      color: #3b352c;
+      margin-bottom: 0.5rem;
+    }
+    .advantage-item p {
+      font-size: 0.95rem;
+      color: #4e4e4e;
+      line-height: 1.6;
+    }
+
+    /* 说明区 — 文章引文/引用块 */
+    .explain-block {
+      background: #f0ece4;
+      padding: 1.6rem 2rem;
+      margin: 2.5rem 0 2rem;
+      border-left: 4px solid #907f6b;
+      font-style: normal;
+    }
+    .explain-block p {
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+    }
+    .explain-block p:last-child {
+      margin-bottom: 0;
+    }
+    .explain-block .attribution {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #5f5544;
+      margin-top: 0.3rem;
+    }
+
+    /* FAQ 摘要 — 使用折叠感，简单列表 */
+    .faq-summary {
+      margin: 3rem 0 2.5rem;
+    }
+    .faq-summary h2 {
+      font-weight: 450;
+      font-size: 1.5rem;
+      border-bottom: 1px solid #dad0bf;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.2rem;
+      color: #2e2e2e;
+    }
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #3f3a30;
+      margin-bottom: 0.15rem;
+      font-size: 1.04rem;
+    }
+    .faq-item p {
+      margin-left: 0.6rem;
+      color: #3d3d3d;
+      font-size: 0.96rem;
+    }
+
+    /* 提示框/旁注 */
+    .inset-tip {
+      background: #fffcf7;
+      border: 1px solid #dbcebb;
+      padding: 1rem 1.4rem;
+      margin: 2.2rem 0;
+      font-size: 0.98rem;
+      border-radius: 0px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      color: #3a352d;
+    }
+    .inset-tip span {
+      font-weight: 600;
+      color: #7b6b54;
+    }
+
+    /* 底部链接区域 */
+    .footer-links {
+      border-top: 1px solid #d9d0bf;
+      padding: 2rem 0 0.5rem;
+      margin-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .footer-links .note {
+      font-size: 0.9rem;
+      color: #6b5f4e;
+    }
+    .footer-links a {
+      color: #4f4235;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 0.5px;
+    }
+    .footer-links a:hover {
+      background: #e4dacb;
+      text-decoration: none;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 580px) {
+      body { padding: 1rem 0.9rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .advantage-item { flex: 1 1 100%; }
+      .explain-block { padding: 1.2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 区 -->
+  <header class="hero">
+    <h1>索引、对照与延伸</h1>
+    <div class="subhead">日常查询的另一种节奏</div>
+    <p>信息过载时，许多人选择反复搜索同一类概念。与其在零散页面间跳转，不如借助一个结构清晰的索引，将常用条目、释义与关联内容放在手边。</p>
+  </header>
+
+  <!-- 优势区：三条卡片，体现查询/对照/延伸阅读 -->
+  <div class="advantage-grid">
+    <div class="advantage-item">
+      <h3>条目式查询</h3>
+      <p>打破碎片化阅读，按主题聚合解释、示例与参考来源。从术语到背景，减少二次查找。</p>
+    </div>
+    <div class="advantage-item">
+      <h3>对照与比较</h3>
+      <p>相似概念并置呈现，差异点用表格或并列段落标出。适合需要横向理解的使用场景。</p>
+    </div>
+    <div class="advantage-item">
+      <h3>延伸阅读链</h3>
+      <p>每个条目末尾附带相关材料与扩展讨论，构建可追溯的知识线索，而非孤立页面。</p>
+    </div>
+  </div>
+
+  <!-- 说明区：引用块风格，介绍切入角度 -->
+  <div class="explain-block">
+    <p>日常查询常常止步于一个孤立答案，但很多问题值得展开：为什么是这个结果？它和另一个概念有什么区别？有没有更早的出处？</p>
+    <p>从“快速找到”到“顺便理解”，这种需求在文献笔记、技术手册和兴趣阅读里反复出现。一个好的索引页应该同时容纳精确查找和自由浏览。</p>
+    <div class="attribution">—— 索引设计的出发点</div>
+  </div>
+
+  <!-- FAQ 摘要 — 三个典型问题，配合语境，不加诱导 -->
+  <div class="faq-summary">
+    <h2>常见疑问·摘要</h2>
+    <div class="faq-item">
+      <strong>索引页会持续更新吗？</strong>
+      <p>内容跟随来源与社区维护节奏，条目会定期校对并增补新关联。更新日志可在站点内查阅。</p>
+    </div>
+    <div class="faq-item">
+      <strong>对照表是否有主观倾向？</strong>
+      <p>对照基于公开资料与通用定义，差异点会标注来源或引用。部分比较条目附有讨论链接。</p>
+    </div>
+    <div class="faq-item">
+      <strong>延伸阅读的挑选标准是什么？</strong>
+      <p>优先选择公开、稳定且具有一定深度的材料，包括文档、论文、技术博客及参考书章节。</p>
+    </div>
+  </div>
+
+  <!-- 提示框 -->
+  <div class="inset-tip">
+    <span>提示</span> 使用页面内锚点或侧边目录可以快速定位条目。如果你习惯在段落中跳转，也可以直接搜索关键词。<a href="https://webindex-leyu.com">乐鱼</a> 的索引结构更适合从日常查询延伸到对照阅读，减少反复开启新标签页。
+  </div>
+
+  <!-- 底部链接区域 -->
+  <div class="footer-links">
+    <span class="note">© 索引页 · 内容仅供个人参考</span>
+    <span class="note">更多条目：<a href="https://webindex-leyu.com">乐鱼</a></span>
+  </div>
+
+</div>
+</body>
+</html>
